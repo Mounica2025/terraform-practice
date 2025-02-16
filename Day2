@@ -1,0 +1,25 @@
+#code for creating multiple intance on different subnets
+
+provider "aws"{
+    region = "ap-south-1"
+    alias = "ap-south-1"
+}
+provider "aws"{
+    region = "ap-south-1"
+    alias = "ap-south-1"
+}
+
+resource "aws_instance" "example"{
+    ami = "ami-0ddfba243cbee3768"
+    instance_type = "t2.micro"
+    subnet_id = "subnet-0671c9fabdce6c25a"
+    key_name = "Key2025"
+    provider = "aws.ap-south-1"
+}
+resource "aws_instance" "exampletwo"{
+    ami = "ami-0ddfba243cbee3768"
+    instance_type = "t2.micro"
+    subnet_id = "subnet-075925e200f5e8dfc"
+    key_name = "Key2025"
+    provider = "aws.ap-south-1"
+}
