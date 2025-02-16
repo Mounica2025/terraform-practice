@@ -1,0 +1,21 @@
+provider "aws"{
+    region = "ap-south-1"
+}
+
+variable "ami_id"{
+    description = "ami id for ec2"
+    type= string
+    default = "ami-0ddfba243cbee3768" 
+}
+variable "instance_type"{
+    description = "ec2 type"
+    type = string 
+    default = "t2.micro"
+} 
+resource "aws_instance" "myfirstvar"{
+    ami = var.ami_id
+    instance_type = var.instance_type
+    }
+output "public_ip"{ 
+value = aws_instance.myfirstvar.public_ip
+}
