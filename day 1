@@ -1,0 +1,10 @@
+# Creating simple aws ec2 instance
+provider "aws"{
+    region = "ap-south-1"
+}
+resource "aws_instance" "example" {
+    ami= "ami-0ddfba243cbee3768"
+    instance_type= "t2.micro"
+    subnet_id = "subnet-075925e200f5e8dfc"
+    key_name = "Key2025"
+}
